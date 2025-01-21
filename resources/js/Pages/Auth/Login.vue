@@ -122,9 +122,11 @@ const submit = () => {
                             Login
                         </Button>
                         <Button
+                            as="a"
                             variant="outline"
                             class="w-full"
                             icon="pi pi-google"
+                            :href="route('google.redirect')"
                         >
                             Login with Google
                         </Button>

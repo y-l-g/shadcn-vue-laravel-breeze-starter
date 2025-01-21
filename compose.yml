@@ -20,6 +20,9 @@ services:
       - shadcn-vue-laravel-starter_MAIL_HOST
       - shadcn-vue-laravel-starter_MAIL_USERNAME
       - shadcn-vue-laravel-starter_MAIL_PASSWORD
+      - shadcn-vue-laravel-starter_GOOGLE_CLIENT_ID
+      - shadcn-vue-laravel-starter_GOOGLE_CLIENT_SECRET
+      - shadcn-vue-laravel-starter_GOOGLE_REDIRECT_URL
     entrypoint: start-container
     networks:
       - shadcn-vue-laravel-starter
@@ -41,6 +44,12 @@ secrets:
   shadcn-vue-laravel-starter_MAIL_USERNAME:
     external: true
   shadcn-vue-laravel-starter_MAIL_PASSWORD:
+    external: true
+  shadcn-vue-laravel-starter_GOOGLE_CLIENT_ID:
+    external: true
+  shadcn-vue-laravel-starter_GOOGLE_CLIENT_SECRET:
+    external: true
+  shadcn-vue-laravel-starter_GOOGLE_REDIRECT_URL:
     external: true
 networks:
   shadcn-vue-laravel-starter:
