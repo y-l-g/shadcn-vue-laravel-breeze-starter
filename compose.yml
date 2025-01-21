@@ -23,31 +23,6 @@ services:
     networks:
       - shadcn-vue-laravel-starter
   ##################################################
-  # HORIZON
-  ##################################################
-  horizon:
-    image: ghcr.io/y-l-g/chat-laravel-inertia-primevue:main
-    volumes:
-      - shadcn-vue-laravel-starter_horizon_data:/data
-      - shadcn-vue-laravel-starter_horizon_config:/config
-    command: ["php", "artisan", "horizon"]
-    healthcheck:
-      test: ["CMD", "php", "artisan", "horizon:status"]
-    secrets:
-      - shadcn-vue-laravel-starter_DB_PASSWORD
-      - shadcn-vue-laravel-starter_REDIS_PASSWORD
-      - shadcn-vue-laravel-starter_APP_URL
-      - shadcn-vue-laravel-starter_APP_KEY
-      - shadcn-vue-laravel-starter_REVERB_APP_SECRET
-      - shadcn-vue-laravel-starter_REVERB_APP_KEY
-      - shadcn-vue-laravel-starter_REVERB_APP_ID
-      - shadcn-vue-laravel-starter_APP_DOMAIN
-    entrypoint: start-container
-    environment:
-      - APP_NAME=shadcn-vue-laravel-starter
-    networks:
-      - shadcn-vue-laravel-starter
-  ##################################################
   # VOLUMES
   ##################################################
 volumes:
@@ -58,11 +33,13 @@ secrets:
     external: true
   shadcn-vue-laravel-starter_REDIS_PASSWORD:
     external: true
-  shadcn-vue-laravel-starter_APP_URL:
-    external: true
   shadcn-vue-laravel-starter_APP_KEY:
     external: true
-  shadcn-vue-laravel-starter_APP_DOMAIN:
+  shadcn-vue-laravel-starter_MAIL_HOST:
+    external: true
+  shadcn-vue-laravel-starter_MAIL_USERNAME:
+    external: true
+  shadcn-vue-laravel-starter_MAIL_PASSWORD:
     external: true
 networks:
   shadcn-vue-laravel-starter:
