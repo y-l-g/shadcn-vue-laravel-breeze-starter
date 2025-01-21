@@ -1,0 +1,69 @@
+services:
+  #################################################
+  # OCTANE:FRANKENPHP
+  #################################################
+  app:
+    image: ghcr.io/y-l-g/shadcn-vue-laravel-breeze-starter:main
+    volumes:
+      - shadcn-vue-laravel-starter_app_data:/data
+      - shadcn-vue-laravel-starter_app_config:/config
+    healthcheck:
+      test: ["CMD", "php", "artisan", "octane:status"]
+      start_period: 20s
+    command: sh -c 'php artisan octane:frankenphp --host=0.0.0.0'
+    environment:
+      - APP_NAME=shadcn-vue-laravel-starter
+    secrets:
+      - shadcn-vue-laravel-starter_DB_PASSWORD
+      - shadcn-vue-laravel-starter_REDIS_PASSWORD
+      - shadcn-vue-laravel-starter_APP_URL
+      - shadcn-vue-laravel-starter_APP_KEY
+      - shadcn-vue-laravel-starter_APP_DOMAIN
+    entrypoint: start-container
+    networks:
+      - shadcn-vue-laravel-starter
+  ##################################################
+  # HORIZON
+  ##################################################
+  horizon:
+    image: ghcr.io/y-l-g/chat-laravel-inertia-primevue:main
+    volumes:
+      - shadcn-vue-laravel-starter_horizon_data:/data
+      - shadcn-vue-laravel-starter_horizon_config:/config
+    command: ["php", "artisan", "horizon"]
+    healthcheck:
+      test: ["CMD", "php", "artisan", "horizon:status"]
+    secrets:
+      - shadcn-vue-laravel-starter_DB_PASSWORD
+      - shadcn-vue-laravel-starter_REDIS_PASSWORD
+      - shadcn-vue-laravel-starter_APP_URL
+      - shadcn-vue-laravel-starter_APP_KEY
+      - shadcn-vue-laravel-starter_REVERB_APP_SECRET
+      - shadcn-vue-laravel-starter_REVERB_APP_KEY
+      - shadcn-vue-laravel-starter_REVERB_APP_ID
+      - shadcn-vue-laravel-starter_APP_DOMAIN
+    entrypoint: start-container
+    environment:
+      - APP_NAME=shadcn-vue-laravel-starter
+    networks:
+      - shadcn-vue-laravel-starter
+  ##################################################
+  # VOLUMES
+  ##################################################
+volumes:
+  shadcn-vue-laravel-starter_app_data:
+  shadcn-vue-laravel-starter_app_config:
+secrets:
+  shadcn-vue-laravel-starter_DB_PASSWORD:
+    external: true
+  shadcn-vue-laravel-starter_REDIS_PASSWORD:
+    external: true
+  shadcn-vue-laravel-starter_APP_URL:
+    external: true
+  shadcn-vue-laravel-starter_APP_KEY:
+    external: true
+  shadcn-vue-laravel-starter_APP_DOMAIN:
+    external: true
+networks:
+  shadcn-vue-laravel-starter:
+    external: true
