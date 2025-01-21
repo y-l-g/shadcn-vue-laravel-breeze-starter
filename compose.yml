@@ -16,9 +16,7 @@ services:
     secrets:
       - shadcn-vue-laravel-starter_DB_PASSWORD
       - shadcn-vue-laravel-starter_REDIS_PASSWORD
-      - shadcn-vue-laravel-starter_APP_URL
       - shadcn-vue-laravel-starter_APP_KEY
-      - shadcn-vue-laravel-starter_APP_DOMAIN
     entrypoint: start-container
     networks:
       - shadcn-vue-laravel-starter
