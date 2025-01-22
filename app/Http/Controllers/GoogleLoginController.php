@@ -27,8 +27,9 @@ class GoogleLoginController extends Controller
         ]);
         Auth::login($user);
 
-        return Redirect::to('/dashboard')->with([
-            'message' => "You've been succesfully logged in!"
-        ]);
+        return Redirect::to('/dashboard')->with(
+            'message',
+            "You've been succesfully logged in!"
+        );
     }
 }
