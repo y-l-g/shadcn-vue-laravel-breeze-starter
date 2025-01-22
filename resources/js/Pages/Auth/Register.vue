@@ -125,11 +125,13 @@ const submit = () => {
                             Register
                         </Button>
                         <Button
+                            as="a"
                             variant="outline"
                             class="w-full"
                             icon="pi pi-google"
+                            :href="route('google.redirect')"
                         >
-                            Register with Google
+                            Login with Google
                         </Button>
                     </div>
                     <div class="mt-4 text-center text-sm">
