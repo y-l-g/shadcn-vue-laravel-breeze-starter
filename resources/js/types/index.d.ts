@@ -15,6 +15,6 @@ export type PageProps<
     };
     ziggy: Config & { location: string };
     flash: {
-        message: string;
+        message?: string;
     };
 };
