@@ -125,13 +125,14 @@ const submit = () => {
                             Register
                         </Button>
                         <Button
-                            as="a"
+                            as-child
                             variant="outline"
                             class="w-full"
                             icon="pi pi-google"
-                            :href="route('google.redirect')"
                         >
+                            <Link :href="route('google.redirect')">
                             Login with Google
+                            </Link>
                         </Button>
                     </div>
                     <div class="mt-4 text-center text-sm">
