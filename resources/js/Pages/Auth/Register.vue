@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Logo from '@/Components/Logo.vue';
-import { Button } from '@/Components/ui/button';
+import { Button, buttonVariants } from '@/Components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/Components/ui/card'
 import { Input } from '@/Components/ui/input'
 import { Label } from '@/Components/ui/label'
@@ -8,6 +8,7 @@ import { useDark, useToggle } from '@vueuse/core';
 import { SunIcon, MoonIcon } from '@radix-icons/vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
+import { cn } from '@/lib/utils';
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
@@ -116,22 +117,17 @@ const submit = () => {
                             Register
                         </Button>
 
-                        <Button
-                            as="button"
-                            :asChild="!form.processing"
-                            variant="outline"
+                        <Link
+                            :href="route('google.redirect')"
                             class="w-full"
-                            icon="pi pi-google"
-                            :class="{ 'opacity-25': form.processing }"
+                            :class="cn(buttonVariants({
+                                variant: 'outline'
+                            }))"
                             :disabled="form.processing"
                         >
-                            <Link
-                                :href="route('google.redirect')"
-                                class="w-full"
-                            >
-                            Register with Google
-                            </Link>
-                        </Button>
+                        Register with Google
+                        <span class="pi pi-google"></span>
+                        </Link>
 
                     </div>
                     <div class="mt-4 text-center text-sm">
