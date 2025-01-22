@@ -29,7 +29,7 @@ class GoogleLoginController extends Controller
 
         return redirect(route('dashboard'))->with(
             'message',
-            "Your have been registered!"
+            "Your have been authenticated!"
         );
     }
 }
