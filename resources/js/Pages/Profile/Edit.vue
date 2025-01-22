@@ -5,6 +5,7 @@ import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 import { Head } from '@inertiajs/vue3';
 import Header from '@/Components/Header.vue';
+import ResetPasswordForm from './Partials/ResetPasswordForm.vue';
 
 defineProps<{
     mustVerifyEmail?: boolean;
@@ -22,6 +23,7 @@ defineProps<{
             :status="status"
         />
         <UpdatePasswordForm />
+        <ResetPasswordForm />
         <DeleteUserForm />
     </div>
 

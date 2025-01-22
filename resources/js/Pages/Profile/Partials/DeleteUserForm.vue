@@ -66,7 +66,8 @@ const closeModal = () => {
                         <AlertDialogDescription>
                             Once your account is deleted, all of its resources and data
                             will be permanently deleted. Please enter your password to
-                            confirm you would like to permanently delete your account.
+                            confirm you would like to permanently delete your account. If you've no password, please
+                            cancel and click "Reset Password" and then come back.
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <div class="grid gap-4">
