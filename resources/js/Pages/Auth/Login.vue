@@ -113,13 +113,20 @@ const submit = () => {
                             Login
                         </Button>
                         <Button
-                            as="a"
+                            as="button"
+                            :asChild="!form.processing"
                             variant="outline"
                             class="w-full"
                             icon="pi pi-google"
-                            :href="route('google.redirect')"
+                            :class="{ 'opacity-25': form.processing }"
+                            :disabled="form.processing"
                         >
+                            <Link
+                                :href="route('google.redirect')"
+                                class="w-full"
+                            >
                             Login with Google
+                            </Link>
                         </Button>
                     </div>
                     <div class="mt-4 text-center text-sm">

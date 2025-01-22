@@ -115,16 +115,24 @@ const submit = () => {
                         >
                             Register
                         </Button>
+
                         <Button
-                            as-child
+                            as="button"
+                            :asChild="!form.processing"
                             variant="outline"
                             class="w-full"
                             icon="pi pi-google"
+                            :class="{ 'opacity-25': form.processing }"
+                            :disabled="form.processing"
                         >
-                            <Link :href="route('google.redirect')">
-                            Login with Google
+                            <Link
+                                :href="route('google.redirect')"
+                                class="w-full"
+                            >
+                            Register with Google
                             </Link>
                         </Button>
+
                     </div>
                     <div class="mt-4 text-center text-sm">
                         Already registered?

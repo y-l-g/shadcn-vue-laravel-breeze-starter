@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Header from '@/Components/Header.vue';
+import Card from '@/Components/ui/card/Card.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 
@@ -9,6 +10,6 @@ import { Head } from '@inertiajs/vue3';
 
     <div class="flex min-h-screen flex-col bg-background">
         <Header />
-        <slot />
+        <Card class="p-10 m-10">Here you are! On the Dashboard!</Card>
     </div>
 </template>
