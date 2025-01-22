@@ -20,6 +20,7 @@ const form = useForm({
 
 const submit = () => {
     form.post(route('login'), {
+        preserveScroll: true,
         onFinish: () => {
             form.reset();
         },
