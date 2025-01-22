@@ -5,11 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/Com
 import { Input } from '@/Components/ui/input'
 import { Label } from '@/Components/ui/label'
 import { useDark, useToggle } from '@vueuse/core';
-import { SunIcon, MoonIcon, GithubLogoIcon } from '@radix-icons/vue';
+import { SunIcon, MoonIcon } from '@radix-icons/vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
-
-import { useToast } from '@/Components/ui/toast/use-toast'
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Header from '@/Components/Header.vue';
-import { useToast } from '@/Components/ui/toast';
-import { Head, usePage } from '@inertiajs/vue3';
+import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
