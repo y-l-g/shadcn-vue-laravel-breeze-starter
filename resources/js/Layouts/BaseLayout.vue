@@ -2,15 +2,16 @@
 import Toaster from '@/Components/ui/toast/Toaster.vue';
 import { useToast } from '@/Components/ui/toast/use-toast'
 import { usePage } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { watch } from 'vue';
 const { toast } = useToast()
-const page = usePage()
 
-if (page.props.flash.message) {
-    toast({
-        title: page.props.flash.message,
-    })
-};
+watch(() => usePage().props.flash.message, (newMessage) => {
+    if (newMessage) {
+        toast({
+            title: newMessage,
+        })
+    }
+}, { deep: true });
 
 </script>
 <template>

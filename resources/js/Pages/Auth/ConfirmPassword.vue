@@ -8,11 +8,6 @@ import { useDark, useToggle } from '@vueuse/core';
 import { SunIcon, MoonIcon, GithubLogoIcon } from '@radix-icons/vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
-import Checkbox from '@/Components/ui/checkbox/Checkbox.vue';
-
-import { useToast } from '@/Components/ui/toast/use-toast'
-
-const { toast } = useToast()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
@@ -27,11 +22,6 @@ const submit = () => {
         onFinish: () => {
             form.reset('password');
         },
-        onSuccess: () => {
-            toast({
-                title: "Thank you for confirming your password",
-            });
-        }
     });
 };
 

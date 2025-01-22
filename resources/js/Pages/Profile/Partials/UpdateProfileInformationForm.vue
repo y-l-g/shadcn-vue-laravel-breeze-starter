@@ -6,9 +6,6 @@ import { Label } from '@/Components/ui/label'
 import { Link, useForm, usePage } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
 
-import { useToast } from '@/Components/ui/toast/use-toast'
-
-const { toast } = useToast()
 defineProps<{
     mustVerifyEmail?: Boolean;
     status?: String;
@@ -26,11 +23,6 @@ const submit = () => {
         onFinish: () => {
             form.reset();
         },
-        onSuccess: () => {
-            toast({
-                title: "Your informations have been saved",
-            });
-        }
     });
 };
 

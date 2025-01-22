@@ -10,8 +10,6 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
 
 import { useToast } from '@/Components/ui/toast/use-toast'
-
-const { toast } = useToast()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
@@ -27,11 +25,6 @@ const form = useForm({
 
 const submit = () => {
     form.post(route('password.email'), {
-        onSuccess: () => {
-            toast({
-                title: "Check your emails to reset your password",
-            });
-        }
     });
 };
 

@@ -33,7 +33,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route('dashboard', absolute: false))->with(
+            'message',
+            "Your have been authenticated!"
+        );
     }
 
     /**
@@ -47,6 +50,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/')->with(
+            'message',
+            "Your have been logged out!"
+        );
     }
 }

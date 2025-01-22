@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Header from '@/Components/Header.vue';
-import { Head } from '@inertiajs/vue3';
-
+import { Head, usePage } from '@inertiajs/vue3';
 defineProps<{
     laravelVersion: string;
     phpVersion: string;

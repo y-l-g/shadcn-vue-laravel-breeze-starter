@@ -6,10 +6,7 @@ import { useDark, useToggle } from '@vueuse/core';
 import { SunIcon, MoonIcon } from '@radix-icons/vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
-import { useToast } from '@/Components/ui/toast/use-toast'
 import { computed } from 'vue';
-
-const { toast } = useToast()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
@@ -22,13 +19,7 @@ const props = defineProps<{
 const form = useForm({});
 
 const submit = () => {
-    form.post(route('verification.send'), {
-        onSuccess: () => {
-            toast({
-                title: "A verification mail has been sent",
-            });
-        }
-    });
+    form.post(route('verification.send'), {});
 };
 
 const verificationLinkSent = computed(

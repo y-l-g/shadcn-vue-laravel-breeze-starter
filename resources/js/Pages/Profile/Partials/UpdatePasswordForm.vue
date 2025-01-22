@@ -3,11 +3,8 @@ import { Button } from '@/Components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/Components/ui/card'
 import { Input } from '@/Components/ui/input'
 import { Label } from '@/Components/ui/label'
-import { Link, useForm, usePage } from '@inertiajs/vue3';
+import { useForm } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
-import { useToast } from '@/Components/ui/toast/use-toast'
-
-const { toast } = useToast()
 import { ref } from 'vue';
 
 const passwordInput = ref<HTMLInputElement | null>(null);
@@ -24,9 +21,6 @@ const updatePassword = () => {
         preserveScroll: true,
         onSuccess: () => {
             form.reset();
-            toast({
-                title: "Password has been changed",
-            });
         },
         onError: () => {
             if (form.errors.password) {

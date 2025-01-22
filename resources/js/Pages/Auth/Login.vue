@@ -34,11 +34,6 @@ const submit = () => {
         onFinish: () => {
             form.reset('password');
         },
-        onSuccess: () => {
-            toast({
-                title: "You've been logged in!",
-            });
-        }
     });
 };
 
