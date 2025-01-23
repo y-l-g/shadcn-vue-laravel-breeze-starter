@@ -2,9 +2,17 @@
 import Toaster from '@/Components/ui/toast/Toaster.vue';
 import { useToast } from '@/Components/ui/toast/use-toast'
 import { usePage } from '@inertiajs/vue3';
-import { watch } from 'vue';
+import { onMounted, watch } from 'vue';
 const { toast } = useToast()
 
+onMounted(() => {
+    const initialMessage = usePage().props.flash.message;
+    if (initialMessage) {
+        toast({
+            title: initialMessage,
+        });
+    }
+});
 watch(() => usePage().props.flash.message, (newMessage) => {
     if (newMessage) {
         toast({
