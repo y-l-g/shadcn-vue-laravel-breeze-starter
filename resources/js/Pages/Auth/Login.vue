@@ -114,17 +114,16 @@ const submit = () => {
                             Login
                         </Button>
 
-                        <Link
+                        <a
                             :href="route('google.redirect')"
                             class="w-full"
                             :class="cn(buttonVariants({
                                 variant: 'outline'
                             }))"
-                            :disabled="form.processing"
                         >
-                        Login with Google
-                        <span class="pi pi-google"></span>
-                        </Link>
+                            Login with Google
+                            <span class="pi pi-google"></span>
+                        </a>
                     </div>
                     <div class="mt-4 text-center text-sm">
                         Don't have an account?

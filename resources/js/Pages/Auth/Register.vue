@@ -117,17 +117,16 @@ const submit = () => {
                             Register
                         </Button>
 
-                        <Link
+                        <a
                             :href="route('google.redirect')"
                             class="w-full"
                             :class="cn(buttonVariants({
                                 variant: 'outline'
                             }))"
-                            :disabled="form.processing"
                         >
-                        Register with Google
-                        <span class="pi pi-google"></span>
-                        </Link>
+                            Register with Google
+                            <span class="pi pi-google"></span>
+                        </a>
 
                     </div>
                     <div class="mt-4 text-center text-sm">
